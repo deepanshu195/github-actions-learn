@@ -6,5 +6,3 @@ jobs:
     steps: 
       - name: Printing
         run: echo "hello world"
-      - name: End
-        run: echo "end of it"   
