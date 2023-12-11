@@ -1,6 +1,7 @@
 
 name: Node Multiple workflow
 on: 
+  workflow_dispatch:
   push: 
     branches: master
 jobs:
@@ -30,6 +31,9 @@ jobs:
     steps: 
       - name: Clone the repo using github action checkout
         uses: actions/checkout@v3
+        #the node js is already installed, as there are some predefined software which are already installed in ubuntu-latest runner.
+      - name: Install node js
+
       - name: Install dependecies
         run: npm ci
       - name: Printing current date
