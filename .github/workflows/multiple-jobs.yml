@@ -33,7 +33,9 @@ jobs:
         uses: actions/checkout@v3
         #the node js is already installed, as there are some predefined software which are already installed in ubuntu-latest runner.
       - name: Install node js
-
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 18
       - name: Install dependecies
         run: npm ci
       - name: Printing current date
