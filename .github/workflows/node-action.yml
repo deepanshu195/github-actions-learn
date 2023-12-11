@@ -8,5 +8,13 @@ jobs:
   # the above is a custom name, rest all were keywords. 
     runs-on: ubuntu-latest
     steps: 
+    # The below action is a github market place. https://github.com/marketplace/actions/checkout?version=v3.6.0. For actions, you would have to use uses instead or run. Using with keyword, we can have some more configurations.
+    # By default the actions attach to the repo will be used, but you can choose which repo to use.
+      - name: Action name
+        uses: actions/checkout@v3
+        with: 
+      - name: Install dependecies
+        run: npm ci
       - name: Printing current date
         run: npm run start
+      
