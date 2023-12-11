@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Printing
-      - run: echo "hello world"
+        run: echo "hello world"
       - name: End
-      - run: echo "end of it"   
+        run: echo "end of it"   
