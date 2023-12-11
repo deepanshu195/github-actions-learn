@@ -12,7 +12,6 @@ jobs:
     # By default the actions attach to the repo will be used, but you can choose which repo to use.
       - name: Action name
         uses: actions/checkout@v3
-        with: 
       - name: Install dependecies
         run: npm ci
       - name: Printing current date
