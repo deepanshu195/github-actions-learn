@@ -1,8 +1,16 @@
-name: Try out
-on: workflow_dispatch
+# a name should be there for the workflow file.
+name: Try out first workflow
+# on what event it should trigger 
+on: workflow_dispatch 
+# jobs it should complete < a set of setps is a job > and a set of job is called jobs
 jobs:
   first_job:
+  # the above is a custom name, rest all were keywords. 
     runs-on: ubuntu-latest
     steps: 
-      - name: Printing
+      - name: Printing on console
         run: echo "hello world"
+      - name: Process multi-line cmds
+        run: | 
+          echo " First Step "
+          echo " Second Step "
