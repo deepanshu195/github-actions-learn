@@ -1,0 +1,25 @@
+
+name: Node workflow
+on: 
+  push: 
+    branches: master
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Clone the repo using github action checkout
+        uses: actions/checkout@v3
+      - name: Install dependecies
+        run: npm ci
+      - name: Printing current date
+        run: npm run start
+  run-script-again:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Clone the repo using github action checkout for trying out.
+        uses: actions/checkout@v3
+      - name: Install dependecies again
+        run: npm ci
+      - name: Printing current date again
+        run: npm run start
+      
