@@ -1,0 +1,12 @@
+
+name: Node workflow
+# on what event it should trigger 
+on: workflow_dispatch 
+# jobs it should complete < a set of setps is a job > and a set of job is called jobs
+jobs:
+  run-script:
+  # the above is a custom name, rest all were keywords. 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Printing current date
+        run: npm run start

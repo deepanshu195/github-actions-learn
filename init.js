@@ -1,1 +1,1 @@
-"hello there"
+console.log("Hello there date "+ new Date().getUTCDate());
