@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: Get codebase
         uses: actions/checkout@v3
-      - name: Print the name of the file
+      - name: Print the github context
       # ${{ }} by using this we want to access the variables. github is the reserved keyname. It the also the context which is avaiable.  Please refer to https://docs.github.com/en/actions/learn-github-actions/contexts.
-        run: echo "${{ github.action }}"
+        run: echo "${{ toJSON(github) }}"
