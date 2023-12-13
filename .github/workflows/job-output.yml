@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
    get-name:
     runs-on: ubuntu-latest
-    output:
+    outputs:
       # the below name can be customized.
       action-name: ${{ steps.action_name.outputs.ACTION_NAME_ECHO }}
     steps:
@@ -19,5 +19,5 @@ jobs:
     steps:
       - name: Print the above output
       # needs context object contains the output values of all the depenedent job for the current job.
-        run: echo "${{needs.get-name.action-name}}"
+        run: echo "${{needs.get-name.outputs.action-name}}"
     
