@@ -1,5 +1,5 @@
 
-name: Node Multiple workflow
+name: 3 Node Multiple workflow
 on: 
   workflow_dispatch:
   push: 

@@ -1,4 +1,4 @@
-name: Extract Job Artifacts and use them later
+name: 5 Extract Job Artifacts and use them later
 on: workflow_dispatch
 jobs:
    get-output:

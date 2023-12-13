@@ -1,4 +1,4 @@
-name: Extract context
+name: 4 Extract context
 on: workflow_dispatch
 jobs:
    get-output:

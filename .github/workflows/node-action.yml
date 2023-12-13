@@ -1,5 +1,5 @@
 
-name: Node workflow
+name: 2 Node workflow
 # on what event it should trigger 
 on: workflow_dispatch 
 # jobs it should complete < a set of setps is a job > and a set of job is called jobs

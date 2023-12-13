@@ -1,5 +1,5 @@
 # a name should be there for the workflow file.
-name: Try out first workflow
+name: 1 Try out first workflow
 # on what event it should trigger 
 on: workflow_dispatch 
 # jobs it should complete < a set of setps is a job > and a set of job is called jobs
