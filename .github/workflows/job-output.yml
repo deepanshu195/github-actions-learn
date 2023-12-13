@@ -1,28 +1,23 @@
-name: 5 Extract Job Artifacts and use them later
+name: 6 Job output
 on: workflow_dispatch
 jobs:
-   upload-artifacts:
+   get-name:
     runs-on: ubuntu-latest
+    output:
+      # the below name can be customized.
+      action-name: ${{ steps.action_name.outputs.ACTION_NAME_ECHO }}
     steps:
       - name: Get codebase
         uses: actions/checkout@v3
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with: 
-          name: dist
-          path: |
-            package.json
-            package-lock.json
-      - name: Print the github context
-        run: echo "${{ toJSON(github) }}"
-   download-artifacts:
+      - name: Get action name
+      # given the id so that we can refer to the step output 
+        id: action_name
+        run: echo "ACTION_NAME_ECHO ${{ github.action }} >> $GITHUB_OUTPUT"
+   publish-name:
     runs-on: ubuntu-latest
+    need: get-name
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-      - name: Check for artifact
-        run: ls
-
+      - name: Print the above output
+      # needs context object contains the output values of all the depenedent job for the current job.
+        run: echo "${{needs.action-name}}"
     
