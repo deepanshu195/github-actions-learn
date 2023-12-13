@@ -14,7 +14,6 @@ jobs:
       - name: Get action name
       # given the id so that we can refer to the step output 
         id: action_name
-        echo "BRANCH=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
         run: echo "ACTION_NAME_ECHO=${{ github.repository_owner }}" >> "$GITHUB_OUTPUT"
    publish-name:
     runs-on: ubuntu-latest
