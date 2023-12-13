@@ -15,9 +15,9 @@ jobs:
         run: echo "ACTION_NAME_ECHO ${{ github.action }} >> $GITHUB_OUTPUT"
    publish-name:
     runs-on: ubuntu-latest
-    need: get-name
+    needs: get-name
     steps:
       - name: Print the above output
       # needs context object contains the output values of all the depenedent job for the current job.
-        run: echo "${{needs.action-name}}"
+        run: echo "${{needs.get-name.action-name}}"
     
