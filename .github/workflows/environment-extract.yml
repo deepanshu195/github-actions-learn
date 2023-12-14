@@ -1,7 +1,7 @@
 name: 7 Env output
 on: workflow_dispatch
 env:
-  ACTION: ${{ github.repository }}
+  ACTION: ${{ github.repository_owner_id }}
 jobs:
    pass-env:
     runs-on: ubuntu-latest
