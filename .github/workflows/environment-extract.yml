@@ -2,6 +2,11 @@ name: 7 Env output
 on: workflow_dispatch
 env:
   ACTION: ${{ github.repository_owner_id }}
+  # REPO_SECRET: ${{ secrets.REPO_OWNER }} # REPOSITORY SECRET
+  # REPO_VAR:   # REPOSITORY VARIABLE
+  # ENV_SECRET: ${{ }} # ENVIRONMENT SECRET
+  # ENV_VARIABLE: ${{ }} # ENVIRONMENT VARIABLE
+
 jobs:
    pass-env:
     runs-on: ubuntu-latest
@@ -22,5 +27,7 @@ jobs:
         run: echo "${{ toJSON(secrets) }}"
       - name: Echo the Env
         run: echo "${{ toJSON(env) }}"
+      - name: Echo the vars
+        run: echo " ${{ toJSON(vars) }} "
       - name: Run the value
-        run: OWNER=${{ toJSON(secrets) }} npm run start
+        run: OWNER=${{ env.ACTION}} npm run start
