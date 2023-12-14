@@ -1,8 +1,8 @@
 # Github Actions Learn
 
 Docs:  ( 
-    [Document](https://docs.google.com/document/d/1dQJC4H0arppjTLWEerSGnX216Top9DV_WXQHctvySmQ/edit#heading=h.m83ctzpo3siq) 
-    [Actions]( https://github.com/marketplace/actions/checkout?version=v3.6.0.)
+    [Document](https://docs.google.com/document/d/1dQJC4H0arppjTLWEerSGnX216Top9DV_WXQHctvySmQ/edit#heading=h.m83ctzpo3siq) , 
+    [Actions]( https://github.com/marketplace/actions/checkout?version=v3.6.0.) , 
     [Environment Secret Setup](https://github.com/deepanshu195/github-actions-learn/settings/environments/)
     )
 
