@@ -4,18 +4,16 @@ env:
   ACTION: ${{ github.repository_owner_id }}
   # REPO_SECRET: ${{ secrets.REPO_OWNER }} # REPOSITORY SECRET
   # REPO_VAR: ${{ vars.REPO_VAR_OWNER }}   # REPOSITORY VARIABLE
-  # ENV_SECRET: ${{ }} # ENVIRONMENT SECRET
-  # ENV_VARIABLE: ${{ env.REPO_OWNER }} # ENVIRONMENT VARIABLE
-
+  # ENV_SECRET: ${{ secrets.REPO_OWNER }} # ENVIRONMENT SECRET
+  # ENV_VARIABLE:${{ vars.REPO_VAR_OWNER }}  # ENVIRONMENT VARIABLE
+  # TYPES OF SECRESTS:  ENV SECRETS / REPO SECRETS / ORGANIZATIONAL SECRETS.
 jobs:
-   pass-env:
+  # development-envs-extract this will contain the environment  secrets  
+   development-envs-extract:
     runs-on: ubuntu-latest
-    environment: development
+    environment: development # needed to extract the environement secret/variables (https://github.com/deepanshu195/github-actions-learn/settings/environments/1863978320/edit) too along with repo secrets.
     # env:
-    #   OWNER: ${{ env.OWNER }}
-    # outputs:
-    #   # the below name can be customized.
-    #   action-name: ${{ steps.action_name.outputs.ACTION_NAME_ECHO }}
+    #   OWNER: ${{ env.OWNER }} # we can also define evn on steps too.
     steps:
       - name: Get codebase
         uses: actions/checkout@v3
@@ -32,3 +30,18 @@ jobs:
         run: echo " ${{ toJSON(vars) }} "
       - name: Run the value
         run: OWNER=${{ env.ACTION}} npm run start
+   envs-extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codebase
+        uses: actions/checkout@v3
+      - name: Get env value
+        run: echo "${{ env.ACTION }}"
+      - name: Install package
+        run: npm ci
+      - name: Echo the Custom Env 
+        run: echo "${{ toJSON(env) }}"
+      - name: Echo the Repo secrets
+        run: echo "${{ toJSON(secrets) }}" 
+      - name: Echo the Repo vars
+        run: echo " ${{ toJSON(vars) }} "
