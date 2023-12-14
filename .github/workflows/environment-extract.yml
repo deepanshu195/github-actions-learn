@@ -23,11 +23,11 @@ jobs:
         run: echo "${{ env.ACTION }}"
       - name: Install package
         run: npm ci
-      - name: Echo the variables
-        run: echo "${{ toJSON(secrets) }}"
-      - name: Echo the Env
+      - name: Echo the Custom Env
         run: echo "${{ toJSON(env) }}"
-      - name: Echo the vars
+      - name: Echo the Repo secrets
+        run: echo "${{ toJSON(secrets) }}"
+      - name: Echo the Repo vars
         run: echo " ${{ toJSON(vars) }} "
       - name: Run the value
         run: OWNER=${{ env.ACTION}} npm run start
