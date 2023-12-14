@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Get env value
       # the below env is setted up in github https://github.com/deepanshu195/github-actions-learn/settings/environments/1863978320/edit
-        run: echo "${{ env.OWNER }}"
+        run: echo "${{ env.ACTION }}"
       - name: Install package
         run: npm ci
       - name: Run the value
-        run: OWNER= ${{ env.OWNER }} npm run start   
+        run: OWNER= ${{ env.ACTION }} npm run start   
