@@ -14,6 +14,7 @@ jobs:
       - name: Get codebase
         uses: actions/checkout@v3
       - name: Get env value
+      # the below env is setted up in github https://github.com/deepanshu195/github-actions-learn/settings/environments/1863978320/edit
         run: echo "${{ env.OWNER }}"
       - name: Install package
         run: npm ci
