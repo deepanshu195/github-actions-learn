@@ -19,4 +19,6 @@ jobs:
       - name: Install package
         run: npm ci
       - name: Run the value
-        run: OWNER= ${{ toJSON(secrets) }} npm run start   
+        run: OWNER=env.ACTION npm run start
+      - name: Run the value
+        run: OWNER= ${{ toJSON(secrets) }} npm run start        
