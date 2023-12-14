@@ -2,8 +2,8 @@ name: 7 Env output
 on: workflow_dispatch
 env:
   ACTION: ${{ github.repository_owner_id }}
-  # REPO_SECRET: ${{ secrets.REPO_OWNER }} # REPOSITORY SECRET
-  # REPO_VAR:   # REPOSITORY VARIABLE
+  REPO_SECRET: ${{ secrets.REPO_OWNER }} # REPOSITORY SECRET
+  REPO_VAR: ${{ vars.REPO_VAR_OWNER }}   # REPOSITORY VARIABLE
   # ENV_SECRET: ${{ }} # ENVIRONMENT SECRET
   # ENV_VARIABLE: ${{ }} # ENVIRONMENT VARIABLE
 
