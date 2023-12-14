@@ -1,0 +1,21 @@
+name: 7 Env output
+on: workflow_dispatch
+env:
+  ACTION: ${{ github.repository }}
+jobs:
+   pass-env:
+    runs-on: ubuntu-latest
+    # env:
+    #   OWNER: ${{ env.OWNER }}
+    # outputs:
+    #   # the below name can be customized.
+    #   action-name: ${{ steps.action_name.outputs.ACTION_NAME_ECHO }}
+    steps:
+      - name: Get codebase
+        uses: actions/checkout@v3
+      - name: Get env value
+        run: echo "${{ env.OWNER }}"
+      - name: Install package
+        run: npm ci
+      - name: Run the value
+        run: OWNER= ${{ env.OWNER }} npm run start   
