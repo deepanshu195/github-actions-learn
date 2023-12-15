@@ -24,4 +24,5 @@ First go through with below file in the order.
 
 8. [conditional-workflow.yml](.github/workflows/conditional-workflow.yml)
 
+9. [strategy-matrix.yml](.github/workflows/strategy-matrix.yml)
 

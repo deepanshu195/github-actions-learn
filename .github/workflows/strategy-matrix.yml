@@ -1,0 +1,14 @@
+
+name: 9 Extract context
+on: workflow_dispatch
+jobs:
+   get-output:
+    continue-on-error: true
+    strategy:
+      matrix:
+        node-version: [ 12, 14, 16 ]
+        operating-system: [ ubuntu-latest , windows-latest ]
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - name: Echo something 
+        uses: echo "${{ matrix.operating-system }}"
