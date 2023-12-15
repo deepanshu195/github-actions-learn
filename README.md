@@ -22,4 +22,6 @@ First go through with below file in the order.
 
 7. [environment-extract.yml](.github/workflows/environment-extract.yml)
 
+8. [conditional-workflow.yml](.github/workflows/conditional-workflow.yml)
+
 

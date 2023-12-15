@@ -1,0 +1,23 @@
+name: 8 Conditional workflow
+on: workflow_dispatch
+jobs:
+   step-work-on-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codebase
+        uses: actions/checkout@v3
+      - name: Install package
+        id: fail_package_install
+        run: npm run random
+      - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+        if: steps.fail_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.
+        run:  echo "It should have printed."
+    step-skipped-on-success:
+      - name: Get codebase 2nd
+        uses: actions/checkout@v3
+      - name: Install package 2nd
+        id: success_package_install
+        run: npm i
+      - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+        if: steps.success_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.
+        run:  echo "it shouldn't be printed"
