@@ -50,6 +50,12 @@ jobs:
       - name: Shouldn't echo if the (Install package) succedded 
         if: failure() &&  steps.success_package_install.outcome == 'failure' 
         run:  echo "it shouldn't be printed"
+   do-not-proceed-after-job-fail:
+    runs-on: ubuntu-latest
+    needs: [step-skip-on-fail, step-skipped-on-success ]
+    steps:
+      - name: Echo if any of the needs job fails
+        run:  echo "It should have printed."
    proceed-even-after-job-fail: # run the job even after the job fail using failure()
     runs-on: ubuntu-latest
     needs: [step-skip-on-fail, step-skipped-on-success ]
