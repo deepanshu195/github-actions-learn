@@ -2,4 +2,4 @@ name: 11 Reusable workflow usage
 on: workflow_dispatch
 jobs:
   first_job:
-  uses: ./.github/workflows/reusable-workflow.yml
+    uses: ./.github/workflows/reusable-workflow.yml
