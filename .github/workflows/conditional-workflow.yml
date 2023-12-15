@@ -6,13 +6,17 @@ jobs:
     steps:
       - name: Get codebase
         uses: actions/checkout@v3
+      # - name: Echo shit  # if you un
+      #   run: juhu v chopati
       - name: Install package
         id: fail_package_install
         run: npm run random
       - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
-        if: steps.fail_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.
+        if: failure() steps.fail_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.   &&&&&&&&     failure() is a special function provided by github. Check the docs  https://docs.google.com/document/d/1dQJC4H0arppjTLWEerSGnX216Top9DV_WXQHctvySmQ/edit#heading=h.j4fxyccdmq4
         run:  echo "It should have printed."
-    step-skipped-on-success:
+  step-skipped-on-success:
+    runs-on: ubuntu-latest
+    steps:
       - name: Get codebase 2nd
         uses: actions/checkout@v3
       - name: Install package 2nd
