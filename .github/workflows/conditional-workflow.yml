@@ -68,6 +68,6 @@ jobs:
     continue-on-error: true
     steps:
       - name: Fail this step
-      - run: npm run shit 
+        run: npm run shit 
       - name: Echo if any of the needs job fails
         run:  echo "It should have printed."
