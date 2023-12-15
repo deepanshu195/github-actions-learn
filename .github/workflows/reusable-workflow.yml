@@ -22,9 +22,9 @@ on:
       artifact_secret_name: 
         description: The Name of the secret artifact
         required: false
-    outputs:
-      description: This is the ouput for reusable workflow
-      value: ${{ jobs.reusing-job.outputs.dummy-output }}
+    # outputs:
+    #   description: This is the ouput for reusable workflow
+    #   value: ${{ jobs.reusing-job.outputs.dummy-output }}
 
 jobs:
   reusing-job:
