@@ -19,7 +19,7 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
       artifact_name: ${{ inputs.artifact_name }}
-    secret: 
+    secrets: 
       secret_name: ${{ inputs.artifact_name }}
   # second-job:
   #   runs-on: ubuntu-latest
