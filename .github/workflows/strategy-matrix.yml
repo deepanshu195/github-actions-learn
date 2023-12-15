@@ -11,4 +11,4 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Echo something 
-        uses: echo "${{ matrix.operating-system }}"
+        run: echo "${{ matrix.operating-system }}"
