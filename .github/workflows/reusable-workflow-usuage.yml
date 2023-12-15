@@ -8,12 +8,21 @@ on:
         required: false
         default: distnance
         type: string
-
+    secrets:
+      artifact_secret_name: 
+        description: The Name of the secret artifact
+        required: false
+        default: secret
+        type: string
 jobs:
   first_job:
     uses: ./.github/workflows/reusable-workflow.yml
-  second-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Echo the inputs
-        run: echo " ${{ inputs.artifact_name }}"
+    with:
+      artifact_name: ${{ inputs.artifact_name }}
+    secret: 
+      secret_name: ${{ inputs.artifact_name }}
+  # second-job:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Echo the inputs
+  #       run: echo " ${{ inputs.artifact_name }}"

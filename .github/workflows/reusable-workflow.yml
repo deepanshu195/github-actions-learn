@@ -1,5 +1,30 @@
+# name: 10 Reusable workflow
+# on: workflow_call # this means it will be called from another workflow
+# jobs:
+#   reusing-job:
+#   # the above is a custom name, rest all were keywords. 
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - name: Printing on console
+#         run: echo "hello world"
+#       - name: Process multi-line cmds
+#         run: echo " First Step "
+
 name: 10 Reusable workflow
-on: workflow_call # this means it will be called from another workflow
+on: 
+  workflow_call: 
+    input: 
+      artifact_name: 
+        description: The Name of the artifact
+        required: false
+        default: distnance
+        type: string
+    secrets:
+      artifact_secret_name: 
+        description: The Name of the secret artifact
+        required: false
+        default: secret
+        type: string      
 jobs:
   reusing-job:
   # the above is a custom name, rest all were keywords. 
@@ -8,4 +33,6 @@ jobs:
       - name: Printing on console
         run: echo "hello world"
       - name: Process multi-line cmds
-        run: echo " First Step "
+        run: echo "${{ inputs.artifact_name }}"
+      - name: Print the secrets
+        run: echo " ${{ secrets.artifact_secret_name }}"
