@@ -1,5 +1,16 @@
 name: 11 Reusable workflow usage
-on: workflow_dispatch
+on: 
+  workflow_call:
+    input:
+      artifact_name: 
+        description: The Name of the artifact
+        required: false
+        default: distnance
+        type: string
+
 jobs:
   first_job:
     uses: ./.github/workflows/reusable-workflow.yml
+    steps:
+      - name: Echo the input
+        run: echo " ${{ input.artifact_name }}"
