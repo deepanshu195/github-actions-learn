@@ -20,7 +20,7 @@ jobs:
     with:
       artifact_name: ${{ inputs.artifact_name }}
     secrets: 
-      secret_name: ${{ inputs.artifact_name }}
+      artifact_secret_name: ${{ inputs.artifact_name }}
   # second-job:
   #   runs-on: ubuntu-latest
   #   steps:
