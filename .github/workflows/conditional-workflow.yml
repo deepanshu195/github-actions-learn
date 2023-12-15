@@ -63,11 +63,18 @@ jobs:
     steps:
       - name: Echo if any of the needs job fails
         run:  echo "It should have printed."
+   fail-the-job:
+    runs-on: ubuntu-latest
+    continue-on-error: true 
+    steps:
+      - name: Fail this
+        run: npm run shutup
    proceed-even-after-step-fail-using-continue: # run the job even after the job fail using failure()
     runs-on: ubuntu-latest
+    needs: [ fail-the-job ]
     steps:
       - name: Fail this step
-        continue-on-error: true
         run: npm run shit 
       - name: Echo if any of the needs job fails
         run:  echo "It should have printed."
+    
