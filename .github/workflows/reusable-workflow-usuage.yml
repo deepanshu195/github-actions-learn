@@ -1,7 +1,8 @@
 name: 11 Reusable workflow usage
+
 on: 
   workflow_dispatch:
-    input:
+    inputs:
       artifact_name: 
         description: The Name of the artifact
         required: false
