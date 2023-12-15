@@ -63,3 +63,10 @@ jobs:
     steps:
       - name: Echo if any of the needs job fails
         run:  echo "It should have printed."
+   proceed-even-after-job-fail-using-continue: # run the job even after the job fail using failure()
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    needs: [step-skip-on-fail, step-skipped-on-success ]
+    steps:
+      - name: Echo if any of the needs job fails
+        run:  echo "It should have printed."
