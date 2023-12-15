@@ -1,4 +1,4 @@
-name: 11 Reusable workflow
+name: 11 Reusable workflow usage
 on: workflow_dispatch
 jobs:
   first_job:

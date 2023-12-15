@@ -1,0 +1,11 @@
+name: 10 Reusable workflow
+on: workflow_call # this means it will be called from another workflow
+jobs:
+  reusing-job:
+  # the above is a custom name, rest all were keywords. 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Printing on console
+        run: echo "hello world"
+      - name: Process multi-line cmds
+        run: echo " First Step "
