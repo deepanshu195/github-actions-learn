@@ -40,4 +40,4 @@ jobs:
         run: echo " ${{ secrets.artifact_secret_name }}"
       - name: print the dummy value output
         id: ACTION_NAME_ECHO
-        run: echo"DUMMY_OUTPUT=`hi there`" >> "$GITHUB_OUTPUT"
+        run: echo"DUMMY_OUTPUT=hh" >> "$GITHUB_OUTPUT"
