@@ -47,6 +47,6 @@ jobs:
       - name: Install package 2nd
         id: success_package_install
         run: npm i
-      - name: Echo if the (Install package) fails 
+      - name: Shouldn't echo if the (Install package) succedded 
         if: failure() &&  steps.success_package_install.outcome == 'failure' 
         run:  echo "it shouldn't be printed"
