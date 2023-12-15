@@ -17,6 +17,7 @@ on:
       artifact_name: 
         description: The Name of the artifact
         required: false
+        type: string
     secrets:
       artifact_secret_name: 
         description: The Name of the secret artifact
