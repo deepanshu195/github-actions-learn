@@ -25,6 +25,7 @@ on:
     outputs:
       description: This is the ouput for reusable workflow
       value: ${{ jobs.reusing-job.outputs.dummy-output }}
+
 jobs:
   reusing-job:
     runs-on: ubuntu-latest
