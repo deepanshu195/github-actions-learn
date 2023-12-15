@@ -1,7 +1,32 @@
 name: 8 Conditional workflow
 on: workflow_dispatch
 jobs:
-   step-work-on-fail:
+   step-skip-on-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codebase
+        uses: actions/checkout@v3
+      - name: Install package
+        id: fail_skipped_package_install
+        run: npm run random
+      - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+        if: steps.fail_skipped_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this. 
+        run:  echo "It should have printed."
+   step-not-work-on-fail-without-using-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codebase
+        uses: actions/checkout@v3
+      - name: Fail this step # if this step fails the below step wont work and the Install package step will be skipped. 
+                        # ALso the github has a default behaviour that prevent any steps being executed if one step is failed. TO change it, we need to use failure() function. 
+        run: juhu v chopati
+      - name: Install package
+        id: fail_package_install
+        run: npm run random
+      - name: Echo if the (Install package) fails 
+        if: failure() &&  steps.fail_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.   &&&&&&&&     failure() is a special function provided by github. Check the docs  https://docs.google.com/document/d/1dQJC4H0arppjTLWEerSGnX216Top9DV_WXQHctvySmQ/edit#heading=h.j4fxyccdmq4
+        run:  echo "It shouldn't have printed."
+   step-work-on-fail-using-failure:
     runs-on: ubuntu-latest
     steps:
       - name: Get codebase
@@ -12,7 +37,7 @@ jobs:
       - name: Install package
         id: fail_package_install
         run: npm run random
-      - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      - name: Echo if the (Install package) fails 
         if: failure() &&  steps.fail_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.   &&&&&&&&     failure() is a special function provided by github. Check the docs  https://docs.google.com/document/d/1dQJC4H0arppjTLWEerSGnX216Top9DV_WXQHctvySmQ/edit#heading=h.j4fxyccdmq4
         run:  echo "It should have printed."
    step-skipped-on-success:
@@ -23,6 +48,6 @@ jobs:
       - name: Install package 2nd
         id: success_package_install
         run: npm i
-      - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
-        if: failure() &&  steps.success_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this.
+      - name: Echo if the (Install package) fails 
+        if: failure() &&  steps.success_package_install.outcome == 'failure' 
         run:  echo "it shouldn't be printed"
