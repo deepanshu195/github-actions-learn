@@ -13,7 +13,7 @@
 name: 10 Reusable workflow
 on: 
   workflow_call: 
-    input: 
+    inputs: 
       artifact_name: 
         description: The Name of the artifact
         required: false
