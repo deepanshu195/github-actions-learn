@@ -22,10 +22,16 @@ on:
       artifact_secret_name: 
         description: The Name of the secret artifact
         required: false
+    outputs:
+      description: This is the ouput for reusable workflow
+      value: ${{ jobs.reusing-job.outputs.dummy-output }}
 jobs:
   reusing-job:
   # the above is a custom name, rest all were keywords. 
     runs-on: ubuntu-latest
+     outputs:
+      # the below name can be customized.
+      dummy-output: ${{ steps.action_name.outputs.ACTION_NAME_ECHO }}
     steps: 
       - name: Printing on console
         run: echo "hello world"
@@ -33,3 +39,6 @@ jobs:
         run: echo "${{ inputs.artifact_name }}"
       - name: Print the secrets
         run: echo " ${{ secrets.artifact_secret_name }}"
+      - name: print the dummy value output
+        id: ACTION_NAME_ECHO
+        run: echo"DUMMY_OUTPUT=`hi there`" >> "$GITHUB_OUTPUT"
