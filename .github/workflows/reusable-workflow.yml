@@ -17,13 +17,11 @@ on:
       artifact_name: 
         description: The Name of the artifact
         required: false
-        default: distnance
         type: string
     secrets:
       artifact_secret_name: 
         description: The Name of the secret artifact
         required: false
-        default: secret
         type: string      
 jobs:
   reusing-job:
