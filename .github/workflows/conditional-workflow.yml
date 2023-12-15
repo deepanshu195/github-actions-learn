@@ -10,7 +10,6 @@ jobs:
         id: fail_skipped_package_install
         run: npm run random
       - name: Echo if the (Install package) fails   #  https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
-        if: steps.fail_skipped_package_install.outcome == 'failure'     # ${{ }} is not needed for if clause. Its an exception for this. 
         run:  echo "It should have printed."
    step-not-work-on-fail-without-using-failure:
     runs-on: ubuntu-latest
