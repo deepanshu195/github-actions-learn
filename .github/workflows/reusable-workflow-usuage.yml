@@ -1,6 +1,6 @@
 name: 11 Reusable workflow usage
 on: 
-  workflow_call:
+  workflow_dispatch:
     input:
       artifact_name: 
         description: The Name of the artifact
