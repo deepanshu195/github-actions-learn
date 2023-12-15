@@ -14,5 +14,5 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yml
   second-job:
     steps:
-      - name: Echo the input
-        run: echo " ${{ input.artifact_name }}"
+      - name: Echo the inputs
+        run: echo " ${{ inputs.artifact_name }}"
