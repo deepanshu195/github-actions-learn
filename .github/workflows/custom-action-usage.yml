@@ -1,0 +1,8 @@
+name: 1 Try out first workflow
+on: workflow_dispatch 
+jobs:
+  main-job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Run Js Custom action.
+        uses: ./.github/custom-actions/node-basic-setup.yml
