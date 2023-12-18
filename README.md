@@ -29,3 +29,6 @@ First go through with below file in the order.
 10. [reusuable-workflow.yml](.github/workflows/reusuable-workflow.yml)
 
 11. [reusuable-workflow-usuage.yml](.github/workflows/reusuable-workflow-usuage.yml)
+
+12. [custom-action-usage.yml](.github/workflows/custom-action-usage.yml)
+    (THe custom action folder iniside .github folder will contains the npm dependencies as the github will not install it for us. )
