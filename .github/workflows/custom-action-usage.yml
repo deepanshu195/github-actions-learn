@@ -8,4 +8,4 @@ jobs:
       - name: Get codebase
         uses: actions/checkout@v3
       - name: Run Js Custom action.
-        uses: ./.github/custom-actions/node-basic-setup.yml
+        uses: ./.github/custom-actions/action.yml

@@ -1,4 +1,4 @@
-# the name of its parent folder can be anything.
+# the name of its parent folder can be anything. but the name of this file needs to be action.yml only.
 name: 12 JS Custom Action
 description: This will be an custom made javascript action
 runs: 
