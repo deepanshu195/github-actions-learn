@@ -4,5 +4,8 @@ jobs:
   main-job:
     runs-on: ubuntu-latest
     steps: 
+      # we are using relative path in the run js custom action path. If it had been an external repo, we would have used it without actions/checkout@v3.
+      - name: Get codebase
+        uses: actions/checkout@v3
       - name: Run Js Custom action.
         uses: ./.github/custom-actions/node-basic-setup.yml
