@@ -8,9 +8,9 @@ Docs:  (
 
 First go through with below file in the order.
 
-1. [first-actions.yml](.github/workflows/first-action.yml)
+1. [first-action.yml](.github/workflows/first-action.yml)
 
-2. [node-actions.yml](.github/workflows/node-action.yml)
+2. [node-action.yml](.github/workflows/node-action.yml)
 
 3. [multiple-jobs.yml](.github/workflows/multiple-jobs.yml)
 
