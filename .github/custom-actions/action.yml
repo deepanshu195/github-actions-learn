@@ -2,5 +2,5 @@
 name: 12 JS Custom Action
 description: This will be an custom made javascript action
 runs: 
-  using: ubuntu-latest
+  using: node-16
   main: main.js
