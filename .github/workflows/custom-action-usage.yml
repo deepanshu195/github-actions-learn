@@ -8,4 +8,5 @@ jobs:
       - name: Get codebase
         uses: actions/checkout@v3
       - name: Run Js Custom action.
-        uses: ./.github/custom-actions/action.yml
+        #path to the github action folder and not the file.
+        uses: ./.github/custom-actions/
